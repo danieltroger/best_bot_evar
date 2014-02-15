@@ -71,7 +71,7 @@ while(1){
                 elseif(strpos($a8, 'source')!== false){
 					fputs($connection, "PRIVMSG {$inchannel} :{$user}:One does not simply see my code.\n");
 					sleep(10);
-					fputs($connection, "PRIVMSG {$inchannel} :{$user}:But seriously, if you really want to, you can see it in http://www.github.com/goeo-/best-bot-evar\n");
+					fputs($connection, "PRIVMSG {$inchannel} :{$user}:But seriously, if you really want to, you can see it in http://www.github.com/goeo-/best_bot_evar\n");
 					fputs($connection, "PRIVMSG {$inchannel} :{$user}:Feel free to send pull requests.\n");
 				}
 			    else {
