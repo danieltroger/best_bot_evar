@@ -114,26 +114,8 @@ usleep(5000);
 			}
 		}
 		elseif(strpos($firstword,'commands')!== false){
-			fputs($connection, "PRIVMSG {$inchannel} : {$user}: My commands are:\n");
- fputs($connection, "PRIVMSG {$inchannel} : help - gives unuseful help\n");
-fputs($connection, "PRIVMSG {$inchannel} : commands - gives a list of commands\n");
-fputs($connection, "PRIVMSG {$inchannel} : source - returens sourcecode of the original bot by goeo\n");
-fputs($connection, "PRIVMSG {$inchannel} : antiroll - searches trough an array after the 1 argument\n");
-fputs($connection, "PRIVMSG {$inchannel} : fuck you - returens - yeah, you have to try it ;)\n");
-fputs($connection, "PRIVMSG {$inchannel} : thank you - says No problem\n");
-fputs($connection, "PRIVMSG {$inchannel} : hello - returns Hi, a nice day, what?\n");
-usleep(5000);
-fputs($connection, "PRIVMSG {$inchannel} : which date is it - returns date & time\n");
-fputs($connection, "PRIVMSG {$inchannel} : die - kills the bot\n");
-usleep(5000);
-fputs($connection, "PRIVMSG {$inchannel} : log - dumps all variables to console\n");
-usleep(5000);
-fputs($connection, "PRIVMSG {$inchannel} : save <file> <text> - saves text as /tmp/file\n");
-sleep(1);
-fputs($connection, "PRIVMSG {$inchannel} : done - says done\n");
-fputs($connection, "PRIVMSG {$inchannel} : google <-count number> term - searches for term and displays number of results\n");
-usleep(5000);
-fputs($connection, "PRIVMSG {$inchannel} : say - a pm to the bot says the text given on the main channel\n");
+$tp = "My commands are:\nhelp - gives unuseful help\ncommands - gives a list of commands\nsource - returens sourcecode of the original bot by goeo\nantiroll - searches trough an array after the 1 argument\nfuck you - returens - yeah, you have to try it ;)\nthank you - says No problem\nhello - returns Hi, a nice day, what?\n which date is it - returns date & time\ndie - kills the bot\nlog - dumps all variables to console\n save <file> <text> - saves text as /tmp/file\ndone - says done\ngoogle <-count number> term - searches for term and displays number of results\nsay - a pm to the bot says the text given on the main channel\ntranslate <to lang> string - translates string to to lang";
+putter($tp, "{$inchannel} :{$user}:",$connection);
 		}
 elseif(strpos($all, 'thank you')!== false){
 		fputs($connection, "PRIVMSG {$inchannel} :{$user}:No problem, and for more support check http://jbqa.me...\n");
@@ -257,6 +239,7 @@ if($line != "")
 $cmd = "PRIVMSG {$prev} {$line}\n";
 echo $cmd;
 fputs($conn, $cmd);
+usleep(500000);
 }
 }
 }
