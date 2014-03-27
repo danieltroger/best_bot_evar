@@ -9,13 +9,16 @@ eval(base64_decode("CgovKioKICogR29vZ2xlIFRyYW5zbGF0ZSBQSFAgY2xhc3MKICoKICogQGF1
 set_time_limit(0);
 $server = "irc.freenode.org";
 $nick = "phonebot";
-$channels = "#goeosbottest";
+$channels = array("#goeosbottest", "#dchatt");
 $port = 6667;
 $connection = fsockopen("$server", $port);
 
 fputs ($connection, "USER $nick $nick $nick $nick :$nick\n");//lulz
 fputs ($connection, "NICK $nick\n");
-fputs ($connection, "JOIN {$channels}\n");
+foreach($channels as $channel)
+{
+fputs ($connection, "JOIN {$channel}\n");
+}
 while(1){
 	while($data = fgets($connection)){
 	echo nl2br($data);
@@ -40,7 +43,20 @@ while(1){
 	$len = strlen($firstword) + 1;
 	$argsafterfirstword = substr($all,$len);
 	if (strpos($data, " PRIVMSG {$nick} :say")!== false){
-		fputs($connection, "PRIVMSG {$channels} : {$all}\n");
+		foreach($channels as $channel)
+{
+fputs($connection, "PRIVMSG {$channel} : {$all}\n");
+}
+	}
+if (strpos($data, " PRIVMSG {$nick} :leave")!== false){
+
+fputs($connection, "PART {$firstword}\n");
+	}
+else if (strpos($data, "INVITE {$nick} :")!== false){
+$cmd = "JOIN {$a6[2]}";
+		fputs($connection, "{$cmd}\n");
+echo "{$cmd}\n";
+//print_r(get_defined_vars());
 	}
 /*else if (strpos($data, " PRIVMSG {$nick} :cs")!== false){
 $cmd = "PRIVMSG ChanServ :OP {$channels} daniel664";
@@ -91,7 +107,7 @@ usleep(5000);
 	elseif(strpos($firstword, 'source')!== false){
 			fputs($connection, "PRIVMSG {$inchannel} :{$user}: One does not simply see my code.\n");
 			sleep(10);
-			fputs($connection, "PRIVMSG {$inchannel} :{$user}: But seriously, if you really want to, you can see it in http://www.github.com/goeo-/best_bot_evar\n");
+			fputs($connection, "PRIVMSG {$inchannel} :{$user}: But seriously, if you really want to, you can see it in https://github.com/danieltroger/best_bot_evar/blob/master/bot.php\n");
 			fputs($connection, "PRIVMSG {$inchannel} :{$user}: Feel free to send pull requests.\n");
 		}
 		elseif(strpos($firstword, 'hiddenfeature')!== false){
