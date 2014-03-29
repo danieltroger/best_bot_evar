@@ -8,11 +8,11 @@ eval(base64_decode("CgovKioKICogR29vZ2xlIFRyYW5zbGF0ZSBQSFAgY2xhc3MKICoKICogQGF1
 
 set_time_limit(0);
 $server = "irc.freenode.org";
-$nick = "phonebot";
-$channels = array("#goeosbottest", "#dchatt");
+$nick = "phonebot2";
+$channels = array("#goeosbottest", "#dchatt","#atxhack");
 $port = 6667;
 $connection = fsockopen("$server", $port);
-
+$statusses = array("i'm fine, thank you","i'm fealing great! how r u doing?","yeah, i'm a little tired...","nah, could be better","i'm well","idk how i am feeling....");
 fputs ($connection, "USER $nick $nick $nick $nick :$nick\n");//lulz
 fputs ($connection, "NICK $nick\n");
 foreach($channels as $channel)
@@ -130,7 +130,7 @@ usleep(5000);
 			}
 		}
 		elseif(strpos($firstword,'commands')!== false){
-$tp = "My commands are:\nhelp - gives unuseful help\ncommands - gives a list of commands\nsource - returens sourcecode of the original bot by goeo\nantiroll - searches trough an array after the 1 argument\nfuck you - returens - yeah, you have to try it ;)\nthank you - says No problem\nhello - returns Hi, a nice day, what?\n which date is it - returns date & time\ndie - kills the bot\nlog - dumps all variables to console\n save <file> <text> - saves text as /tmp/file\ndone - says done\ngoogle <-count number> term - searches for term and displays number of results\nsay - a pm to the bot says the text given on the main channel\ntranslate <to lang> string - translates string to to lang";
+$tp = "My commands are:\nhelp - gives unuseful help\ncommands - gives a list of commands\nsource - returens sourcecode of the original bot by goeo\nantiroll - searches trough an array after the first argument\nfuck you - returens - yeah, you have to try it ;)\nthank you - says No problem\nhello - returns Hi, a nice day, what?\n which date is it - returns date & time\ndie - kills the bot\nlog - dumps all variables to console\n save <file> <text> - saves text as /tmp/file\ndone - says done\ngoogle [-count number] term - searches for term and displays number of results\nsay - a pm to the bot says the text given on the main channel\ntranslate <twolettercodeofthelanguagethebotshalltranslateto> text - translates text to to lang\nhi - returns hi :)";
 putter($tp, "{$inchannel} :{$user}:",$connection);
 		}
 elseif(strpos($all, 'thank you')!== false){
@@ -178,6 +178,19 @@ sleep(1);
 elseif(strpos($all, 'date')!== false){
 		fputs($connection, "PRIVMSG {$inchannel} :{$user}:It is the: " . shell_exec("date") . "\n");
 		}
+elseif(strpos($firstword, 'hi')!== false){
+		fputs($connection, "PRIVMSG {$inchannel} :{$user}:Hi :)\n");
+		}
+elseif(strpos($all, 'how')!== false){
+if((strpos($all, 'r')!== false) || (strpos($all, 'are')!== false))
+{
+if((strpos($all, 'u')!== false) || (strpos($all, 'you')!== false))
+	{
+$status = $statusses[rand(0,count($statusses)-1)];
+	fputs($connection, "PRIVMSG {$inchannel} :{$user}: {$status}\n");
+}
+}
+		}
 elseif(strpos($firstword, 'translate')!== false){
 $all = explode (" ",$all);
 unset($all[0]);
@@ -201,7 +214,8 @@ print_r(get_defined_vars());
 echo "\nPRIVMSG {$nick} :\n";
 		}
 		else {
-		 fputs($connection, "PRIVMSG {$inchannel} :{$user}: Sorry, I am just a bot, ask a real human being instead, or maybe my brother, best_bot_evar.\n");
+		// fputs($connection, "PRIVMSG {$inchannel} :{$user}: Sorry, I am just a bot, ask a real human being instead, or maybe my brother, best_bot_evar.\n");
+fputs($connection, "PRIVMSG {$inchannel} :{$user}: $all\n");
  //fputs($connection, "PRIVMSG {$inchannel} :{$user}: $onlyword \n");
 		 }
 	}
@@ -260,3 +274,4 @@ usleep(500000);
 }
 }
 ?>
+
