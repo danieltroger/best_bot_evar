@@ -130,7 +130,7 @@ usleep(5000);
 			}
 		}
 		elseif(strpos($firstword,'commands')!== false){
-$tp = "My commands are:\nhelp - gives unuseful help\ncommands - gives a list of commands\nsource - returens sourcecode of the original bot by goeo\nantiroll - searches trough an array after the first argument\nfuck you - returens - yeah, you have to try it ;)\nthank you - says No problem\nhello - returns Hi, a nice day, what?\n which date is it - returns date & time\ndie - kills the bot\nlog - dumps all variables to console\n save <file> <text> - saves text as /tmp/file\ndone - says done\ngoogle [-count number] term - searches for term and displays number of results\nsay - a pm to the bot says the text given on the main channel\ntranslate <twolettercodeofthelanguagethebotshalltranslateto> text - translates text to to lang\nhi - returns hi :)";
+$tp = "My commands are:\nhelp - gives unuseful help\ncommands - gives a list of commands\nsource - returens sourcecode of the original bot by goeo\nantiroll - searches trough an array after the first argument\nfuck you - returens - yeah, you have to try it ;)\nthank you - says No problem\nhello - returns Hi, a nice day, what?\n which date is it - returns date & time\ndie - kills the bot\nlog - dumps all variables to console\n save <file> <text> - saves text as /tmp/file\ndone - says done\ngoogle [-count number] term - searches for term and displays number of results\nsay - a pm to the bot says the text given on the main channel\ntranslate <twolettercodeofthelanguagethebotshalltranslateto> text - translates text to to lang\nhi - returns hi :)\nhow are you? - returns a random feeling";
 putter($tp, "{$inchannel} :{$user}:",$connection);
 		}
 elseif(strpos($all, 'thank you')!== false){
@@ -274,4 +274,3 @@ usleep(500000);
 }
 }
 ?>
-
