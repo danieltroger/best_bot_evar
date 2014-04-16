@@ -4,6 +4,7 @@
  */
  
 <?php
+include "jokes.php";
 eval(base64_decode("CgovKioKICogR29vZ2xlIFRyYW5zbGF0ZSBQSFAgY2xhc3MKICoKICogQGF1dGhvciAgICAgIExldmFuIFZlbGlqYW5hc2h2aWxpIDxtZUBzdGljaG96YS5jb20+CiAqIEBsaW5rICAgICAgICBodHRwOi8vc3RpY2hvemEuY29tLwogKiBAdmVyc2lvbiAgICAgMS4zLjAKICogQGFjY2VzcyAgICAgIHB1YmxpYwogKi8KY2xhc3MgR29vZ2xlVHJhbnNsYXRlIHsKICAgIAogICAgLyoqCiAgICAgKiBMYXN0IHRyYW5zbGF0aW9uCiAgICAgKiBAdmFyIHN0cmluZwogICAgICogQGFjY2VzcyBwcml2YXRlCiAgICAgKi8KICAgIHB1YmxpYyAkbGFzdFJlc3VsdCA9ICIiOwogICAgCiAgICAvKioKICAgICAqIExhbmd1YWdlIHRyYW5zbGF0aW5nIGZyb20KICAgICAqIEB2YXIgc3RyaW5nCiAgICAgKiBAYWNjZXNzIHByaXZhdGUKICAgICAqLwogICAgcHJpdmF0ZSAkbGFuZ0Zyb207CiAgICAKICAgIC8qKgogICAgICogTGFuZ3VhZ2UgdHJhbnNsYXRpbmcgdG8KICAgICAqIEB2YXIgc3RyaW5nCiAgICAgKiBAYWNjZXNzIHByaXZhdGUKICAgICAqLwogICAgcHJpdmF0ZSAkbGFuZ1RvOwogICAgCiAgICAvKioKICAgICAqIEdvb2dsZSBUcmFuc2xhdGUgVVJMIGZvcm1hdAogICAgICogQHZhciBzdHJpbmcKICAgICAqIEBhY2Nlc3MgcHJpdmF0ZQogICAgICovCiAgICBwcml2YXRlIHN0YXRpYyAkdXJsRm9ybWF0ID0gImh0dHA6Ly90cmFuc2xhdGUuZ29vZ2xlLmNvbS90cmFuc2xhdGVfYS90P2NsaWVudD10JnRleHQ9JXMmaGw9ZW4mc2w9JXMmdGw9JXMmaWU9VVRGLTgmb2U9VVRGLTgmbXVsdGlyZXM9MSZvdGY9MSZwYz0xJnRycz0xJnNzZWw9MyZ0c2VsPTYmc2M9MSI7CgogICAgLyoqCiAgICAgKiBDbGFzcyBjb25zdHJ1Y3RvcgogICAgICogCiAgICAgKiBAcGFyYW0gc3RyaW5nICRmcm9tIExhbmd1YWdlIHRyYW5zbGF0aW5nIGZyb20gKE9wdGlvbmFsKQogICAgICogQHBhcmFtIHN0cmluZyAkdG8gTGFuZ3VhZ2UgdHJhbnNsYXRpbmcgdG8gKE9wdGlvbmFsKQogICAgICogQGFjY2VzcyBwdWJsaWMKICAgICAqLwogICAgcHVibGljIGZ1bmN0aW9uIF9fY29uc3RydWN0KCRmcm9tID0gImVuIiwgJHRvID0gImthIikgewogICAgICAgICR0aGlzLT5zZXRMYW5nRnJvbSgkZnJvbSktPnNldExhbmdUbygkdG8pOwogICAgfQoKICAgIC8qKgogICAgICogU2V0IGxhbmd1YWdlIHdlIGFyZSB0cmFuc2xldGluZyBmcm9tCiAgICAgKiAKICAgICAqIEBwYXJhbSBzdHJpbmcgJGZyb20gTGFuZ3VhZ2UgY29kZQogICAgICogQHJldHVybiBHb29nbGVUcmFuc2xhdGUKICAgICAqIEBhY2Nlc3MgcHVibGljCiAgICAgKi8KICAgIHB1YmxpYyBmdW5jdGlvbiBzZXRMYW5nRnJvbSgkbGFuZykgewogICAgICAgICR0aGlzLT5sYW5nRnJvbSA9ICRsYW5nOwogICAgICAgIHJldHVybiAkdGhpczsKICAgIH0KICAgIAogICAgLyoqCiAgICAgKiBTZXQgbGFuZ3VhZ2Ugd2UgYXJlIHRyYW5zbGV0aW5nIHRvCiAgICAgKiAKICAgICAqIEBwYXJhbSBzdHJpbmcgJHRvIExhbmd1YWdlIGNvZGUKICAgICAqIEByZXR1cm4gR29vZ2xlVHJhbnNsYXRlCiAgICAgKiBAYWNjZXNzIHB1YmxpYwogICAgICovCiAgICBwdWJsaWMgZnVuY3Rpb24gc2V0TGFuZ1RvKCRsYW5nKSB7CiAgICAgICAgJHRoaXMtPmxhbmdUbyA9ICRsYW5nOwogICAgICAgIHJldHVybiAkdGhpczsKICAgIH0KICAgIAogICAgCiAgICAvKioKICAgICAqIFNpbXBsaWZpZWQgY3VybCBtZXRob2QKICAgICAqIEBwYXJhbSBzdHJpbmcgJHVybCBVUkwKICAgICAqIEBwYXJhbSBhcnJheSAkcGFyYW1zIFBhcmFtZXRlciBhcnJheQogICAgICogQHBhcmFtIGJvb2xlYW4gJGNvb2tpZVNldAogICAgICogQHJldHVybiBzdHJpbmcKICAgICAqIEBhY2Nlc3MgcHVibGljCiAgICAgKi8KICAgIHB1YmxpYyBzdGF0aWMgZmluYWwgZnVuY3Rpb24gbWFrZUN1cmwoJHVybCwgYXJyYXkgJHBhcmFtcyA9IGFycmF5KCksICRjb29raWVTZXQgPSBmYWxzZSkgewogICAgICAgIGlmICghJGNvb2tpZVNldCkgewogICAgICAgICAgICAkY29va2llID0gdGVtcG5hbSgiL3RtcCIsICJDVVJMQ09PS0lFIik7CiAgICAgICAgICAgICRjaCA9IGN1cmxfaW5pdCgkdXJsKTsKICAgICAgICAgICAgY3VybF9zZXRvcHQoJGNoLCBDVVJMT1BUX0NPT0tJRUpBUiwgJGNvb2tpZSk7CiAgICAgICAgICAgIGN1cmxfc2V0b3B0KCRjaCwgQ1VSTE9QVF9SRVRVUk5UUkFOU0ZFUiwgdHJ1ZSk7CiAgICAgICAgICAgICRvdXRwdXQgPSBjdXJsX2V4ZWMoJGNoKTsKCiAgICAgICAgICAgIC8vIENsZWFuIHVwIHRlbXBvcmFyeSBmaWxlCiAgICAgICAgICAgIHVuc2V0KCRjaCk7CiAgICAgICAgICAgIHVubGluaygkY29va2llKTsKCiAgICAgICAgICAgIHJldHVybiAkb3V0cHV0OwogICAgICAgIH0KICAgICAgICAKICAgICAgICAkcXVlcnlTdHJpbmcgPSBodHRwX2J1aWxkX3F1ZXJ5KCRwYXJhbXMpOwoKICAgICAgICAkY3VybCA9IGN1cmxfaW5pdCgkdXJsIC4gIj8iIC4gJHF1ZXJ5U3RyaW5nKTsKICAgICAgICBjdXJsX3NldG9wdCgkY3VybCwgQ1VSTE9QVF9DT09LSUVGSUxFLCAkY29va2llKTsKICAgICAgICBjdXJsX3NldG9wdCgkY3VybCwgQ1VSTE9QVF9SRVRVUk5UUkFOU0ZFUiwgdHJ1ZSk7CiAgICAgICAgJG91dHB1dCA9IGN1cmxfZXhlYygkY3VybCk7CiAgICAgICAgCiAgICAgICAgcmV0dXJuICRvdXRwdXQ7CiAgICB9CgogICAgLyoqCiAgICAgKiBUcmFuc2xhdGUgdGV4dAogICAgICogCiAgICAgKiBAcGFyYW0gc3RyaW5nICRzdHJpbmcgVGV4dCB0byB0cmFuc2xhdGUKICAgICAqIEByZXR1cm4gc3RyaW5nL2Jvb2xlYW4gVHJhbnNsYXRlZCB0ZXh0CiAgICAgKiBAYWNjZXNzIHB1YmxpYwogICAgICovCiAgICBwdWJsaWMgZnVuY3Rpb24gdHJhbnNsYXRlKCRzdHJpbmcpIHsKICAgICAgICAkdXJsID0gc3ByaW50ZihzZWxmOjokdXJsRm9ybWF0LCByYXd1cmxlbmNvZGUoJHN0cmluZyksICR0aGlzLT5sYW5nRnJvbSwgJHRoaXMtPmxhbmdUbyk7CiAgICAgICAgJHJlc3VsdCA9IHByZWdfcmVwbGFjZSgnISwrIScsICcsJywgc2VsZjo6bWFrZUN1cmwoJHVybCkpOyAvLyByZW1vdmUgcmVwZWF0ZWQgY29tbWFzIChjYXVzaW5nIEpTT04gc3ludGF4IGVycm9yKQogICAgICAgICRyZXN1bHRBcnJheSA9IGpzb25fZGVjb2RlKCRyZXN1bHQsIHRydWUpOwogICAgICAgICRmaW5hbFJlc3VsdCA9ICIiOwogICAgICAgIGlmKCFlbXB0eSgkcmVzdWx0QXJyYXlbMF0pKXsKICAgICAgICAgICAgZm9yZWFjaCAoJHJlc3VsdEFycmF5WzBdIGFzICRyZXN1bHRzKQogICAgICAgICAgICAgICAgJGZpbmFsUmVzdWx0IC49ICRyZXN1bHRzWzBdOwogICAgICAgICAgICByZXR1cm4gJHRoaXMtPmxhc3RSZXN1bHQgPSAkZmluYWxSZXN1bHQ7CiAgICAgICAgfQogICAgICAgIGVsc2V7CiAgICAgICAgICAgIHJldHVybiBmYWxzZTsKICAgICAgICB9CiAgICB9CgogICAgLyoqCiAgICAgKiBTdGF0aWMgbWV0aG9kIGZvciB0cmFuc2xhdGluZyB0ZXh0CiAgICAgKiAKICAgICAqIEBwYXJhbSBzdHJpbmcgJHN0cmluZyBUZXh0IHRvIHRyYW5zbGF0ZQogICAgICogQHBhcmFtIHN0cmluZyAkZnJvbSBMYW5ndWFnZSBjb2RlCiAgICAgKiBAcGFyYW0gc3RyaW5nICR0byBMYW5ndWFnZSBjb2RlCiAgICAgKiBAcmV0dXJuIHN0cmluZy9ib29sZWFuIFRyYW5zbGF0ZWQgdGV4dAogICAgICogQGFjY2VzcyBwdWJsaWMKICAgICAqLwogICAgcHVibGljIHN0YXRpYyBmdW5jdGlvbiBzdGF0aWNUcmFuc2xhdGUoJHN0cmluZywgJGZyb20sICR0bykgewogICAgICAgICR1cmwgPSBzcHJpbnRmKHNlbGY6OiR1cmxGb3JtYXQsIHJhd3VybGVuY29kZSgkc3RyaW5nKSwgJGZyb20sICR0byk7CiAgICAgICAgJHJlc3VsdCA9IHByZWdfcmVwbGFjZSgnISwrIScsICcsJywgc2VsZjo6bWFrZUN1cmwoJHVybCkpOyAvLyByZW1vdmUgcmVwZWF0ZWQgY29tbWFzIChjYXVzaW5nIEpTT04gc3ludGF4IGVycm9yKQogICAgICAgICRyZXN1bHRBcnJheSA9IGpzb25fZGVjb2RlKCRyZXN1bHQsIHRydWUpOwogICAgICAgICRmaW5hbFJlc3VsdCA9ICIiOwogICAgICAgIGlmKCFlbXB0eSgkcmVzdWx0QXJyYXlbMF0pKXsKICAgICAgICAgICAgZm9yZWFjaCAoJHJlc3VsdEFycmF5WzBdIGFzICRyZXN1bHRzKQogICAgICAgICAgICAgICAgJGZpbmFsUmVzdWx0IC49ICRyZXN1bHRzWzBdOwogICAgICAgICAgICByZXR1cm4gJHRoaXMtPmxhc3RSZXN1bHQgPSAkZmluYWxSZXN1bHQ7CiAgICAgICAgfQogICAgICAgIGVsc2V7CiAgICAgICAgICAgIHJldHVybiBmYWxzZTsKICAgICAgICB9CiAgICB9Cgp9CgoK"));
 
 set_time_limit(0);
@@ -91,7 +92,7 @@ for($i=0;$i<$numofans;$i++)
 {
 $tp = dispans($i,$result);
 putter($tp, "{$inchannel} :{$user}:",$connection);
-usleep(5000);
+usleep(50000);
 }
 }
 		elseif(strpos($firstword,'help')!== false){
@@ -99,6 +100,10 @@ usleep(5000);
 			fputs($connection, "PRIVMSG {$inchannel} :{$user}: That's why I don't want *you* to use me.\n");
 			fputs($connection, "PRIVMSG {$inchannel} :{$user}: My maker will add even more hidden features to me as he gains nice bot ideas.\n");
 			fputs($connection, "PRIVMSG {$inchannel} :{$user}: No I won't explode for you.\n");
+		}
+	elseif(strpos($firstword,'lol')!== false){
+			$num = rand(0,count($jokes)-1);
+fputs($connection, "PRIVMSG {$inchannel} : \"" . $jokes[$num] . "\"\n");
 		}
 		
 		elseif(strpos($all,'fuck you')!== false){
@@ -130,7 +135,7 @@ usleep(5000);
 			}
 		}
 		elseif(strpos($firstword,'commands')!== false){
-$tp = "My commands are:\nhelp - gives unuseful help\ncommands - gives a list of commands\nsource - returens sourcecode of the original bot by goeo\nantiroll - searches trough an array after the first argument\nfuck you - returens - yeah, you have to try it ;)\nthank you - says No problem\nhello - returns Hi, a nice day, what?\n which date is it - returns date & time\ndie - kills the bot\nlog - dumps all variables to console\n save <file> <text> - saves text as /tmp/file\ndone - says done\ngoogle [-count number] term - searches for term and displays number of results\nsay - a pm to the bot says the text given on the main channel\ntranslate <twolettercodeofthelanguagethebotshalltranslateto> text - translates text to to lang\nhi - returns hi :)\nhow are you? - returns a random feeling";
+$tp = "My commands are:\nhelp - gives unuseful help\ncommands - gives a list of commands\nsource - returens sourcecode of the original bot by goeo\nantiroll - searches trough an array after the first argument\nfuck you - returens - yeah, you have to try it ;)\nthank you - says No problem\nhello - returns  hello, nice day today!, what?\n which date is it - returns date & time\ndie - kills the bot\nlog - dumps all variables to console\n save <file> <text> - saves text as /tmp/file\ndone - says done\ngoogle [-count number] term - searches for term and displays number of results\nsay - a pm to the bot says the text given on the main channel\ntranslate <twolettercodeofthelanguagethebotshalltranslateto> text - translates text to to lang\nhi - returns hi :)\nhow are you? - returns a random feeling\nusage - returns usage\nlol - returns a dumb joke";
 putter($tp, "{$inchannel} :{$user}:",$connection);
 		}
 elseif(strpos($firstword,'usage')!== false){
@@ -152,7 +157,7 @@ fputs($connection, "PRIVMSG {$inchannel} :{$user}:|    /	    \		   /	    |	   \ 
 fputs($connection, "PRIVMSG {$inchannel} :{$user}:|  /		     \------------/	    |	     \| 	    |--------\n");
 }
 elseif(strpos($firstword, 'hello')!== false){
-		fputs($connection, "PRIVMSG {$inchannel} :{$user}:Hi, a nice day, what?\n");
+		fputs($connection, "PRIVMSG {$inchannel} :{$user}:Hello, nice day today!\n");
 		}
 elseif(strpos($all, 'dam')!== false){
 		fputs($connection, "PRIVMSG {$inchannel} :{$user}: do you mean don't ask me?\n");
@@ -211,11 +216,16 @@ $trn = $tr->translate($all);
 putter($trn, "{$inchannel} :{$user}:",$connection);
 }
 elseif(strpos($all, 'die')!== false){
-		die("Someone said die!!!!\n");
+		//die("Someone said die!!!!\n");
+fputs($connection, "PRIVMSG {$inchannel} :{$user}: Nice try\n");
 		}
+
 elseif(strpos($firstword, 'log')!== false){
 print_r(get_defined_vars());
 echo "\nPRIVMSG {$nick} :\n";
+		}
+elseif((strpos($firstword,"k" )!== false) || (strpos($firstword,"ok" )!== false)){
+		
 		}
 		else {
 		// fputs($connection, "PRIVMSG {$inchannel} :{$user}: Sorry, I am just a bot, ask a real human being instead, or maybe my brother, best_bot_evar.\n");
@@ -278,3 +288,4 @@ usleep(500000);
 }
 }
 ?>
+
