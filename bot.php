@@ -190,6 +190,11 @@ elseif(strpos($all, 'date')!== false){
 elseif(strpos($firstword, 'hi')!== false){
 		fputs($connection, "PRIVMSG {$inchannel} :{$user}:Hi :)\n");
 		}
+elseif(strpos($firstword, 'phpinfo')!== false){
+		file_put_contents("/tmp/p","<?php phpinfo(); ?>");
+shell_exec($_SERVER['_'] . " /tmp/p > /tmp/p.o");
+putter(file_get_contents("/tmp/p.o"), "{$inchannel} :{$user}:",$connection);
+		}
 elseif(strpos($all, 'how')!== false){
 if((strpos($all, 'r')!== false) || (strpos($all, 'are')!== false))
 {
